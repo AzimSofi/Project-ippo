@@ -6,7 +6,7 @@ const User = require('./models/user');
 const app = express();
 
 // connect to mongodb & listen for requests
-const dbURI = "paste here your mongodb uri that can be get form connect button";
+const dbURI = "mongodb+srv://Azim_Sofi:XpVGlhf5KT21ETiS@cluster0.yfmb6ar.mongodb.net/";
 
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }) //this return promise
   .then((result) =>{ console.log("Database-connected"); app.listen(8080)})
