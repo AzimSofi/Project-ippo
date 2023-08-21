@@ -4,20 +4,11 @@
 <body>
   <%- include("./partials/nav.ejs") %>
 
-  <div class="blogs content">
-    <h2>All Users</h2>
-
-    <% if (users.length > 0) { %>
-      <% users.forEach(eachuser => { %>
-        <a class="single" href="/users/<%= eachuser.id %>">
-          <h3 class="title"><%= eachuser.name %></h3>
-          <p class="snippet"><%= eachuser.email%></p>
-        </a>
-      <% }) %>
-    <% } else { %>
-      <p>There are no users to display...</p>
-    <% } %>
-    
+  <h2>Posts</h2>
+  <div class="blogs content d-flex justify-content-center">
+    <div class="ratio ratio-16x9" style="width: 720px;">
+        <iframe src="https://monogatary.com/episode/33827" title="タナトス"></iframe>
+      </div>
   </div>
 
   <%- include("./partials/footer.ejs") %>
