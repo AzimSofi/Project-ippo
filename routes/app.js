@@ -42,54 +42,54 @@ app.post('/login/create', require('../controllers/userController').create);
 
 
 
-app.get('/users/:id', (req, res) => {
-	const id = req.params.id;
-	User.findById(id)
-		.then(result => {
-			res.render('details', { user: result, action:'edit',title: 'User Details' });
-		})
-		.catch(err => {
-			console.log(err);
-		});
-});
+// app.get('/users/:id', (req, res) => {
+// 	const id = req.params.id;
+// 	User.findById(id)
+// 		.then(result => {
+// 			res.render('details', { user: result, action:'edit',title: 'User Details' });
+// 		})
+// 		.catch(err => {
+// 			console.log(err);
+// 		});
+// });
 
-app.get('/edit/:name/:action',(req,res)=>{
-	const name = req.params.name;
-	console.log("req made on"+req.url);
-	User.findOne({name:name})
-		.then(result => {
-			res.render('edit', { user: result ,title: 'Edit-User' });
-		})
-		.catch(err => {
-			console.log(err);
-		});
-})
+// app.get('/edit/:name/:action',(req,res)=>{
+// 	const name = req.params.name;
+// 	console.log("req made on"+req.url);
+// 	User.findOne({name:name})
+// 		.then(result => {
+// 			res.render('edit', { user: result ,title: 'Edit-User' });
+// 		})
+// 		.catch(err => {
+// 			console.log(err);
+// 		});
+// })
 
-app.post('/edit/:id',(req,res)=>{
-	console.log("POST req made on"+req.url);
-	User.updateOne({_id:req.params.id},req.body) //then updating that user whose id is get from url 
-												//first passing id which user is to be updated than passing update info
-		.then(result => {
-			res.redirect('/users');
-			console.log("Users profile Updated");
-		})
-		.catch(err => {
-			console.log(err);
-		});
+// app.post('/edit/:id',(req,res)=>{
+// 	console.log("POST req made on"+req.url);
+// 	User.updateOne({_id:req.params.id},req.body) //then updating that user whose id is get from url 
+// 												//first passing id which user is to be updated than passing update info
+// 		.then(result => {
+// 			res.redirect('/users');
+// 			console.log("Users profile Updated");
+// 		})
+// 		.catch(err => {
+// 			console.log(err);
+// 		});
 
-})
+// })
 
-app.post('/users/:name',(req,res)=>{
-	const name = req.params.name;
-	console.log(name);
-	User.deleteOne({name:name})
-	.then(result => {
-	res.redirect('/users');
-	})
-	.catch(err => {
-	console.log(err);
-	});
-})
+// app.post('/users/:name',(req,res)=>{
+// 	const name = req.params.name;
+// 	console.log(name);
+// 	User.deleteOne({name:name})
+// 	.then(result => {
+// 	res.redirect('/users');
+// 	})
+// 	.catch(err => {
+// 	console.log(err);
+// 	});
+// })
 
 
 
