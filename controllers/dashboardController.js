@@ -1,4 +1,4 @@
-exports.show = (req, res) => {
+exports.view = (req, res) => {
     res.send('一覧ページ' + req.params.id);
 };
 
