@@ -6,7 +6,7 @@ const app = express();
 // const session = require('express-session');
 
 // connect to mongodb
-const dbURI = "mongodb+srv://Sakurai2:project-ippo@cluster-ichi.zgwqnik.mongodb.net/";
+const dbURI = "mongodb+srv://yo:ohayo@shiro.cb9wpqn.mongodb.net/";
 
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
 	.then((result) =>{ console.log("Database-connected"); app.listen(8080)})
