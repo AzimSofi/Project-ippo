@@ -15,7 +15,7 @@ exports.create = (req,res) => {
 	const user = new User(req.body); //passing object of form data directly to collection
 	user.save() //then saving this to database and this return promise
 	.then((result) => {
-		res.redirect('/index');//is success save this will redirect to home page
+		res.redirect('/home');//is success save this will redirect to home page
 	})
 	.catch(err => {
 		console.log(err);
