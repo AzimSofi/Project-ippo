@@ -18,8 +18,7 @@
             <ul class="d-flex justify-content-end">
                 <li><a href="/home">ホーム</a></li>
                 <li><a href="/about">記述</a></li>
-                <% let signed_in = false; %>
-                <% if (signed_in) { %>
+                <% if ( user ) { %>
                     <li><a href="/index">サインアウト</a></li>
                 <% } else { %>
                     <li><a href="/sign-up_page">登録</a></li>

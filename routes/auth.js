@@ -8,14 +8,15 @@ const express = require('express');
 const passport = require('passport');
 const router = express.Router();
 
-router.post('/sign-in', passport.authenticate('local', {
-  successRedirect: '/home',
-  failureRedirect: '/sign-in'
+router.post('/sign-up', passport.authenticate('local', {
+    successRedirect: '/home',
+    failureRedirect: '/sign-up_page',
+    failureFlash: true,
 }));
 
 router.post('/login', passport.authenticate('local', {
     successRedirect: '/home',
-    failureRedirect: '/login'
-  }));
+    failureRedirect: '/login_page'
+}));
 
 module.exports = router;

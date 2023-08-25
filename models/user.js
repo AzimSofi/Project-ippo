@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+// const AutoIncrement = require('mongoose-sequence')(mongoose);
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
@@ -6,19 +7,19 @@ const UserSchema = new Schema({
 		type: String,
 		required: false,
 	},
-		email: {
+	email: {
 		type: String,
 		required: true,
 	},
-		password: {
+	password: {
 		type: String,
 		required: true
 	},
-		address:{
+	address:{
 		type:String,
 		required: false
 	},
-		number:{
+	number:{
 		type:Number,
 		required: false
 	},

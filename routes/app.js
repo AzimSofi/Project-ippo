@@ -13,6 +13,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
 
 // middleware & static files
 app.use('/', require('../routes/auth'));
+// セッションミドルウェア
 app.use(require('express-session')({
 	secret: 'your-secret-key', // セッションIDを署名する秘密鍵。適当な文字列を設定してください。
 	resave: false, // セッションが変更されない場合でも保存するかどうか
@@ -94,7 +95,7 @@ app.get('/post', require('../controllers/dashboardController').view);
 //Note: must put this route at last route list
 app.use((req,res)=>{
 	console.log("req made on"+req.url);
-	res.render('404',{title:'NotFound'});
+	res.render('404',{ title:'NotFound', user: req.session.user });
 })
 
 

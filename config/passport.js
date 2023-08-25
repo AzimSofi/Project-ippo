@@ -13,8 +13,8 @@ const LocalStrategy = require('passport-local').Strategy;
 
 
 passport.use(new LocalStrategy(
-  (username, password, done) => {
-    User.findOne({ username: username }, (err, user) => {
+  (name, password, done) => {
+    User.findOne({ name: name }, (err, user) => {
         if (err) { return done(err); }
         if (!user) { return done(null, false, { message: 'Incorrect username.' }); }
         // ここでパスワードの検証などを行う
