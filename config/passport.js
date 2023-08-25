@@ -1,3 +1,11 @@
+/**
+ * これはPassportの設定ファイルで、
+ * 認証戦略（今回はローカル戦略）の定義とユーザーの検証方法が含まれます。
+ * 通常、ユーザー名とパスワードのチェック、
+ * セッションへのユーザー情報の保存、
+ * セッションからのユーザー情報の復元などがここで設定されます。
+ */
+
 const passport = require('passport');
 const bcrypt = require('bcrypt');
 const User = require('../models/user');

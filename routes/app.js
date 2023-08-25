@@ -33,10 +33,12 @@ app.get('/', require('../controllers/homeController').redirect);
 app.get('/home', require('../controllers/homeController').index);
 app.get('/about', require('../controllers/homeController').about);
 
-app.get('/post', require('../controllers/dashboardController').view);
+app.get('/sign-up_page', require('../controllers/userController').view_signup);
+app.get('/login_page', require('../controllers/userController').view_login);
+app.post('/sign-up', require('../controllers/userController').create);
+app.post('/login', require('../controllers/userController').login);
 
-app.get('/login', require('../controllers/userController').view);
-app.post('/login/create', require('../controllers/userController').create);
+app.get('/post', require('../controllers/dashboardController').view);
 
 // app.get('/users/:id', (req, res) => {
 // 	const id = req.params.id;
