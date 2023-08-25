@@ -1,8 +1,8 @@
 <html lang="jp">
-<%- include("./partials/head") %>
+<%- include("../partials/head") %>
 <link href="/sign-in.css" rel="stylesheet">
 <body>
-	<%- include("./partials/nav") %>
+	<%- include("../partials/nav") %>
 
 	<main class="form-signin w-100 m-auto">
 		<form action="/login/create" method="POST">
@@ -27,19 +27,6 @@
 			<button class="btn btn-primary w-100 py-2" type="submit">Sign in</button>
 		</form>
 	</main>
-<!-- 
-	<div class="form-signin w0199 m-auto">
-	<form action="/login/create" method="POST">
-		<h1 class="h3 mb-3 fw-normal">登録</h1>
-		<input type="email" class="form-control" id="snippet" name="email" placeholder="name@example.com" required>
-		<label for="floatingInput">メール</label>
-		<input type="password" name="password" id="pwd">
-		<div class="sub">
-		<button type="submit">Submit</button>
-		</div> 
-	</form>
-	</div> -->
-
-	<%- include("./partials/footer") %>
+	<%- include("../partials/footer") %>
 </body>
 </html>

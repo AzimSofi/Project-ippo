@@ -3,7 +3,7 @@ const User = require('../models/user');
 exports.view = (req, res) => {
 
     console.log('登録.一覧');
-    res.render('login', {title:'登録'});
+    res.render('User/login', {title:'登録'});
 };
 
 exports.create = (req,res) => {

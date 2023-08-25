@@ -1,7 +1,7 @@
 exports.redirect = (req, res) => {
 
     console.log('再度、登録');
-    res.redirect('/login');
+    res.render('index',{title:'ホーム'});
 };
 
 exports.index = (req, res) => {

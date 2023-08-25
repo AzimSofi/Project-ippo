@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const User = require('../models/user');
 
 const app = express();
-// const session = require('express-session');
 
 // connect to mongodb
 const dbURI = "mongodb+srv://Sakurai2:project-ippo@cluster-ichi.zgwqnik.mongodb.net/";
@@ -12,35 +11,32 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
 	.then((result) =>{ console.log("Database-connected"); app.listen(8080)})
 	.catch(err => console.log(err));
 
-// app.use(session({
-// 	secret: 'your-secret-key', // 安全な秘密鍵
-// 	resave: false,
-// 	saveUninitialized: true,
-// }));
-
 // middleware & static files
-app.use(express.static('../public')); //this will helps to use style.css file
-app.use(express.urlencoded({ extended: true })); //this will helps to get submitted data of form in req.body obj
+app.use('/', require('../routes/auth'));
+app.use(require('express-session')({
+	secret: 'your-secret-key', // セッションIDを署名する秘密鍵。適当な文字列を設定してください。
+	resave: false, // セッションが変更されない場合でも保存するかどうか
+	saveUninitialized: true, // 未初期化のセッションを保存するかどうか
+	// 以下のように他のオプションも設定可能
+	// cookie: { secure: true } // HTTPSを使用している場合に設定
+}));
+app.use(require('../config/passport').initialize());
+app.use(require('../config/passport').session());
+
+app.use(express.static('../public')); // style.css
+app.use(express.urlencoded({ extended: true })); // get submitted data of form in req.body obj
 
 app.set('views', require('path').join(__dirname, '../views'));
 app.set('view engine', 'ejs');
-
-app.get('/', (req, res) => {
-	res.redirect('/login');
-});
 
 app.get('/', require('../controllers/homeController').redirect);
 app.get('/home', require('../controllers/homeController').index);
 app.get('/about', require('../controllers/homeController').about);
 
-
 app.get('/post', require('../controllers/dashboardController').view);
 
 app.get('/login', require('../controllers/userController').view);
 app.post('/login/create', require('../controllers/userController').create);
-
-
-
 
 // app.get('/users/:id', (req, res) => {
 // 	const id = req.params.id;
@@ -90,9 +86,6 @@ app.post('/login/create', require('../controllers/userController').create);
 // 	console.log(err);
 // 	});
 // })
-
-
-
 
 //404 errors routes
 //this will auto run incase no routes
